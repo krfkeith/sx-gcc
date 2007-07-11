@@ -1,0 +1,8 @@
+This directory contains only an excerpt of binutils, the directories which
+are interesting to see for an SX port.
+
+Once the SX specific files are done they will need to be embedded into a
+full checkout of binutils.
+
+The current (July 5, 2007) checkout is the CVS version of binutils, this contains
+the latest inspiring CPU aupport, eg. spu. 
