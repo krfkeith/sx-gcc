@@ -1,0 +1,38 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+These Wiki pages contain a collection of basic facts about the SX CPU, the binutils and the gcc that are essential in porting said programs to the SX vector CPU. This collection is not intended to be exhaustive because all information can be found somewhere else. It should more or less serve as a reference point and as a discussion forum if things in the manuals are not clear or misleading.
+
+= SX Architecture =
+
+In order to port binutils and gcc to a new platform, it is essential to know the platform you want to port to. So in this section a brief overview will be given of the architecture of the SX.
+
+== Fundamentals ==
+
+== Memory Access ==
+
+== Instruction Formats ==
+
+== Assembler Instructions ==
+
+= Binutils =
+
+== Binary File Description (BFD) ==
+
+== Opcodes ==
+
+== Assembler ==
+
+= GNU C Compiler =
+
+== How does it work? ==
+
+== Important Files for Porting ==
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+
