@@ -25,8 +25,23 @@ In order to port binutils and gcc to a new platform, it is essential to know the
 
 == Memory Access ==
 
-== Instruction Formats ==
+ * Virtual address is 40 bits wide (results in 1 TB address space)
+ * Four possible page sizes: 32 kB (2^15^), 4 MB (2^22^), 16 MB (2^24^) and 64 MB (2^26^)
 
+== Instruction Formats ==
+=== RX Type ===
+=== CFX Type ===
+=== RR Type ===
+=== RW Type ===
+=== RV Type ===
+=== RZ Type ===
+=== RRX Type ===
+ 
+=== Address Generation For Different Instruction Types ===
+==== RX Type Instructions ====
+==== RR/RRX Type Instructions ====
+==== CFX/RZ Type Instructions ====
+ 
 == Assembler Instructions ==
 
 = Binutils =
@@ -42,5 +57,7 @@ In order to port binutils and gcc to a new platform, it is essential to know the
 == How does it work? ==
 
 == Important Files for Porting ==
+
+
 
 
