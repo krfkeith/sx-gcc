@@ -9,6 +9,19 @@ These Wiki pages contain a collection of basic facts about the SX CPU, the binut
 In order to port binutils and gcc to a new platform, it is essential to know the platform you want to port to. So in this section a brief overview will be given of the architecture of the SX.
 
 == Fundamentals ==
+* Registers *
+ * 128 Scalar registers (64 bit wide; S0, S1,..., S127)			
+ * 8 Vector Arithmetic registers (64 bit wide, max. 256 Elements)			
+ * 64 Vector Data registers			
+ * 1 Vector Control register			
+ * 16 Vector Mask registers (256 bit wide; VM0, ..., VM15)			
+ * 1 Vector Length register (10 bit wide)			
+
+ * 1 PSW register (64 bit wide)	
+ * 1 IC (64 bit wide)	
+ * 1 CPSB (64 bit wide)	
+ * 1 NPSB (64 bit wide)	
+
 
 == Memory Access ==
 
@@ -29,10 +42,5 @@ In order to port binutils and gcc to a new platform, it is essential to know the
 == How does it work? ==
 
 == Important Files for Porting ==
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
 
 
