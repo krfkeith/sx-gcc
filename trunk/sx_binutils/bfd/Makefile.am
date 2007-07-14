@@ -176,6 +176,7 @@ ALL_MACHINES_CFILES = \
 	cpu-sh.c \
 	cpu-sparc.c \
 	cpu-spu.c \
+	cpu-sx.c \
 	cpu-tic30.c \
 	cpu-tic4x.c \
 	cpu-tic54x.c \
@@ -1114,6 +1115,7 @@ cpu-sh.lo: cpu-sh.c $(INCDIR)/filenames.h $(INCDIR)/hashtab.h \
   $(srcdir)/../opcodes/sh-opc.h
 cpu-sparc.lo: cpu-sparc.c $(INCDIR)/filenames.h $(INCDIR)/hashtab.h
 cpu-spu.lo: cpu-spu.c $(INCDIR)/filenames.h $(INCDIR)/hashtab.h
+cpu-sx.lo: cpu-sx.c $(INCDIR)/filenames.h $(INCDIR)/hashtab.h
 cpu-tic30.lo: cpu-tic30.c $(INCDIR)/filenames.h $(INCDIR)/hashtab.h
 cpu-tic4x.lo: cpu-tic4x.c $(INCDIR)/filenames.h $(INCDIR)/hashtab.h
 cpu-tic54x.lo: cpu-tic54x.c $(INCDIR)/filenames.h $(INCDIR)/hashtab.h

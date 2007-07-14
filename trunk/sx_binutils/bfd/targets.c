@@ -777,6 +777,7 @@ extern const bfd_target sparclynx_aout_vec;
 extern const bfd_target sparclynx_coff_vec;
 extern const bfd_target sparcnetbsd_vec;
 extern const bfd_target sunos_big_vec;
+extern const bfd_target sxcoff_big_vec;
 extern const bfd_target sym_vec;
 extern const bfd_target tic30_aout_vec;
 extern const bfd_target tic30_coff_vec;
@@ -1161,6 +1162,7 @@ static const bfd_target * const _bfd_target_vector[] =
 	&sparclynx_coff_vec,
 	&sparcnetbsd_vec,
 	&sunos_big_vec,
+	&sxcoff_big_vec,
 	&sym_vec,
 	&tic30_aout_vec,
 	&tic30_coff_vec,

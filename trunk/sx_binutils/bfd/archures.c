@@ -382,6 +382,8 @@ DESCRIPTION
 .#define bfd_mach_msp42          42
 .#define bfd_mach_msp43          43
 .#define bfd_mach_msp44          44
+.  bfd_arch_sx,        {* NEC SX Series *}
+.#define bfd_mach_sx              1
 .  bfd_arch_xc16x,     {* Infineon's XC16X Series.               *}
 .#define bfd_mach_xc16x         1
 .#define bfd_mach_xc16xl        2
@@ -486,6 +488,7 @@ extern const bfd_arch_info_type bfd_score_arch;
 extern const bfd_arch_info_type bfd_sh_arch;
 extern const bfd_arch_info_type bfd_sparc_arch;
 extern const bfd_arch_info_type bfd_spu_arch;
+extern const bfd_arch_info_type bfd_sx_arch;
 extern const bfd_arch_info_type bfd_tic30_arch;
 extern const bfd_arch_info_type bfd_tic4x_arch;
 extern const bfd_arch_info_type bfd_tic54x_arch;
@@ -555,6 +558,7 @@ static const bfd_arch_info_type * const bfd_archures_list[] =
     &bfd_sh_arch,
     &bfd_sparc_arch,
     &bfd_spu_arch,
+    &bfd_sx_arch,
     &bfd_tic30_arch,
     &bfd_tic4x_arch,
     &bfd_tic54x_arch,
