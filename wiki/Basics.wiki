@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Some fundamentals for the porting to SX vector CPUs.
 
 = Introduction =
 
@@ -58,6 +58,5 @@ In order to port binutils and gcc to a new platform, it is essential to know the
 == How does it work? ==
 
 == Important Files for Porting ==
-
 
 
