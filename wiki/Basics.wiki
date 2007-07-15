@@ -53,10 +53,29 @@ In order to port binutils and gcc to a new platform, it is essential to know the
 
 == Assembler ==
 
+=== Instruction Add-ons ===
+
+|| {{{*}}} || enable masked operation ||
+|| {{{%}}} || specify an arithmetic unit C,,f,, = 1 ||
+|| {{{?}}} || specify selection mode C,,m,, = 1 ||
+|| {{{=}}} || clear high order 32 bits, C,,m,, = 1 for VLDL, VLDLX, VGTL, C,,x,,=1 for LDL, DLDL ||
+|| {{{<}}} || static prediction for no branching ||
+|| {{{>}}} || static prediction for branching ||
+|| {{{!}}} || enable extended operation C,,x,,=1 ||
+|| {{{@}}} || single prectision for floating point data and arithmetic ||
+
 = GNU C Compiler =
 
 == How does it work? ==
 
 == Important Files for Porting ==
+
+
+
+
+
+
+
+
 
 
