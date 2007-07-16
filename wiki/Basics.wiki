@@ -17,11 +17,26 @@ In order to port binutils and gcc to a new platform, it is essential to know the
  * 16 Vector Mask registers (256 bit wide; VM0, ..., VM15)			
  * 1 Vector Length register (10 bit wide)			
 
- * 1 PSW register (64 bit wide)	
- * 1 IC (64 bit wide)	
- * 1 CPSB (64 bit wide)	
- * 1 NPSB (64 bit wide)	
+ * 1 PSW (process status word) register (64 bit wide)	
+ * 1 IC (instruction counter) (64 bit wide)
+ * 1 CPSB (current process status block) (64 bit wide)	
+ * 1 NPSB (next process status block) (64 bit wide)
+ * CR (communication registers)
 
+A bunch of miscellaneous registers:
+ * Vector execution clock counter
+ * Floating-point data execution element counter
+ * Cache miss clock counter
+ * Bank conflict clock counter
+ * Debugging identifier register
+ * Store address register
+ * Instruction cache miss clock counter
+ * Security identifier register
+ * Branch prediction failure counter
+ * User clock counter
+ * Instruction pipeline hold clock counter
+ * Vector operation execution clock counter
+ * Vector load execution clock counter
 
 == Memory Access ==
 
@@ -69,7 +84,6 @@ In order to port binutils and gcc to a new platform, it is essential to know the
 == How does it work? ==
 
 == Important Files for Porting ==
-
 
 
 
