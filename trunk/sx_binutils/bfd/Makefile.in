@@ -834,7 +834,8 @@ BFD64_BACKENDS = \
 	pe-x86_64.lo \
 	pei-x86_64.lo \
 	pepigen.lo \
-	pex64igen.lo
+	pex64igen.lo \
+	coff-sx.lo
 
 BFD64_BACKENDS_CFILES = \
 	aix5ppc-core.c \
@@ -861,7 +862,8 @@ BFD64_BACKENDS_CFILES = \
 	nlm64.c \
 	coff-x86_64.c \
 	pe-x86_64.c \
-	pei-x86_64.c
+	pei-x86_64.c \
+	coff-sx.lo
 
 OPTIONAL_BACKENDS = \
 	aix386-core.lo \

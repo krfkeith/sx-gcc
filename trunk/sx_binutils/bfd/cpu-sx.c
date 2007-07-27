@@ -42,13 +42,44 @@ const bfd_arch_info_type bfd_sx_arch[] =
     64,	/* 64 bits in an address */
     8,	/* 8 bits in a byte */
     bfd_arch_sx,	/* architecture */
-    bfd_mach_sx,	/* machine */
+    bfd_mach_sx4,	/* machine */
     "sx",			/* architecture name */
-    "sx",			/* printable name */
+    "sx4",			/* printable name */
+    3,				/* aligned power */
+    FALSE, 			/* the default machine for the architecture */
+    sx_compatible,	/* the SX is only compatible with itself, see above */
+    bfd_default_scan,
+    &bfd_sx_arch[1],
+  },
+
+  {
+    32,	/* 32 bits in a word */
+    64,	/* 64 bits in an address */
+    8,	/* 8 bits in a byte */
+    bfd_arch_sx,	/* architecture */
+    bfd_mach_sx5,	/* machine */
+    "sx",			/* architecture name */
+    "sx5",			/* printable name */
+    3,				/* aligned power */
+    FALSE, 			/* the default machine for the architecture */
+    sx_compatible,	/* the SX is only compatible with itself, see above */
+    bfd_default_scan,
+    &bfd_sx_arch[2],
+  },
+
+  {
+    32,	/* 32 bits in a word */
+    64,	/* 64 bits in an address */
+    8,	/* 8 bits in a byte */
+    bfd_arch_sx,	/* architecture */
+    bfd_mach_sx8,	/* machine */
+    "sx",			/* architecture name */
+    "sx8",			/* printable name */
     3,				/* aligned power */
     TRUE, 			/* the default machine for the architecture */
     sx_compatible,	/* the SX is only compatible with itself, see above */
     bfd_default_scan,
-    0,			/* next -- there are none! */
-  }
+    NULL,
+  },
+
 };

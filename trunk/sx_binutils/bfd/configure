@@ -18839,6 +18839,7 @@ do
     sparclynx_coff_vec)		tb="$tb cf-sparclynx.lo lynx-core.lo" ;;
     sparcnetbsd_vec)		tb="$tb sparcnetbsd.lo aout32.lo" ;;
     sunos_big_vec)		tb="$tb sunos.lo aout32.lo" ;;
+    sxcoff_big_vec)		tb="$tb coff-sx.lo"; target_size=64 ;;
     sym_vec)                    tb="$tb xsym.lo" ;;
     tic30_aout_vec)		tb="$tb aout-tic30.lo" ;;
     tic30_coff_vec)		tb="$tb coff-tic30.lo" ;;

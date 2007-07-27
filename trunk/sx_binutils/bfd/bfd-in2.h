@@ -2045,6 +2045,10 @@ enum bfd_architecture
 #define bfd_mach_msp42          42
 #define bfd_mach_msp43          43
 #define bfd_mach_msp44          44
+  bfd_arch_sx,        /* NEC SX Series */
+#define bfd_mach_sx4             1
+#define bfd_mach_sx5             2
+#define bfd_mach_sx8             3
   bfd_arch_xc16x,     /* Infineon's XC16X Series.               */
 #define bfd_mach_xc16x         1
 #define bfd_mach_xc16xl        2

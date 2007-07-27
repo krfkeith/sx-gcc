@@ -260,11 +260,11 @@ coff_swap_filehdr_in (bfd * abfd, void * src, void * dst)
   COFF_ADJUST_FILEHDR_IN_PRE (abfd, src, dst);
 #endif
   filehdr_dst->f_magic  = H_GET_16 (abfd, filehdr_src->f_magic);
-  filehdr_dst->f_nscns  = H_GET_16 (abfd, filehdr_src->f_nscns);
+  filehdr_dst->f_nscns  = H_GET_32 (abfd, filehdr_src->f_nscns);
   filehdr_dst->f_timdat = H_GET_32 (abfd, filehdr_src->f_timdat);
   filehdr_dst->f_symptr = GET_FILEHDR_SYMPTR (abfd, filehdr_src->f_symptr);
-  filehdr_dst->f_nsyms  = H_GET_32 (abfd, filehdr_src->f_nsyms);
-  filehdr_dst->f_opthdr = H_GET_16 (abfd, filehdr_src->f_opthdr);
+  filehdr_dst->f_nsyms  = H_GET_64 (abfd, filehdr_src->f_nsyms);
+  filehdr_dst->f_opthdr = H_GET_32 (abfd, filehdr_src->f_opthdr);
   filehdr_dst->f_flags  = H_GET_16 (abfd, filehdr_src->f_flags);
 #ifdef TIC80_TARGET_ID
   filehdr_dst->f_target_id = H_GET_16 (abfd, filehdr_src->f_target_id);
@@ -316,11 +316,13 @@ coff_swap_sym_in (bfd * abfd, void * ext1, void * in1)
     }
   else
     {
+#if 0
 #if SYMNMLEN != E_SYMNMLEN
 #error we need to cope with truncating or extending SYMNMLEN
 #else
-      memcpy (in->_n._n_name, ext->e.e_name, SYMNMLEN);
 #endif
+#endif
+      memcpy (in->_n._n_name, ext->e.e_name, SYMNMLEN);
     }
 
   in->n_value = H_GET_32 (abfd, ext->e_value);
@@ -353,11 +355,13 @@ coff_swap_sym_out (bfd * abfd, void * inp, void * extp)
     }
   else
     {
+#if 0
 #if SYMNMLEN != E_SYMNMLEN
 #error we need to cope with truncating or extending SYMNMLEN
 #else
-      memcpy (ext->e.e_name, in->_n._n_name, SYMNMLEN);
 #endif
+#endif
+      memcpy (ext->e.e_name, in->_n._n_name, SYMNMLEN);
     }
 
   H_PUT_32 (abfd, in->n_value, ext->e_value);
@@ -464,6 +468,8 @@ coff_swap_aux_in (bfd *abfd,
 	H_GET_16 (abfd, ext->x_sym.x_fcnary.x_ary.x_dimen[2]);
       in->x_sym.x_fcnary.x_ary.x_dimen[3] =
 	H_GET_16 (abfd, ext->x_sym.x_fcnary.x_ary.x_dimen[3]);
+      in->x_sym.x_fcnary.x_ary.x_dimen[4] =
+	H_GET_16 (abfd, ext->x_sym.x_fcnary.x_ary.x_dimen[4]);
     }
 
   if (ISFCN (type))
@@ -555,6 +561,9 @@ coff_swap_aux_out (bfd * abfd,
 	       ext->x_sym.x_fcnary.x_ary.x_dimen[2]);
       H_PUT_16 (abfd, in->x_sym.x_fcnary.x_ary.x_dimen[3],
 	       ext->x_sym.x_fcnary.x_ary.x_dimen[3]);
+      H_PUT_16 (abfd, in->x_sym.x_fcnary.x_ary.x_dimen[4],
+               ext->x_sym.x_fcnary.x_ary.x_dimen[4]);
+
     }
 
   if (ISFCN (type))

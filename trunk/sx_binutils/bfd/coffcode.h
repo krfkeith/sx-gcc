@@ -2197,6 +2197,14 @@ coff_set_arch_mach_hook (bfd *abfd, void * filehdr)
       break;
 #endif
 
+#ifdef NEC_SX
+    case SX4MAGIC:
+    case SX5MAGIC:
+    case SX8MAGIC:
+      arch = bfd_arch_sx;
+      break;
+#endif
+
 #ifdef TIC30MAGIC
     case TIC30MAGIC:
       arch = bfd_arch_tic30;
@@ -2740,6 +2748,18 @@ coff_set_flags (bfd * abfd,
 #if defined AMD64MAGIC
       *magicp = AMD64MAGIC;
 #endif
+      return TRUE;
+#endif
+
+#ifdef SXMAGIC
+    case bfd_arch_sx:
+      switch (bfd_get_mach (abfd))
+        {
+        case bfd_mach_sx4:  *magicp = SX4MAGIC;  return TRUE;
+        case bfd_mach_sx5:  *magicp = SX5MAGIC;  return TRUE;
+        case bfd_mach_sx8:  *magicp = SX8MAGIC;  return TRUE;
+        default: break;
+        }
       return TRUE;
 #endif
 
