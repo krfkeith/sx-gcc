@@ -1,0 +1,18 @@
+#summary Notes for porting the compiler suite to SX
+
+= Introduction =
+
+= Back-end =
+
+== Back-end files ==
+Each machine dependent part goes into its own subdirectory of 'gcc/gcc/config'. In the case of SX port this will be the sub-directory 'sx'.
+
+== Register definitions ==
+Register in the GCC are numbered zero to an arbitrary number. There are two big classes of registers, hard registers that correspond to teh hardwares register set and pseudo registers that the compiler allocates for itself to setup the internal representation of code. The pseudo regsters are mapped to hard registers in the code creation step.
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
