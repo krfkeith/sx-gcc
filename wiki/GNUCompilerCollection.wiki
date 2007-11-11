@@ -21,4 +21,4 @@ The hardware registers for the SX will be numbered in the following way:
 
 The pseudo registers start then from 217.
 
-[More to be added, like instruction counter (maybe), status register etc...]
+(More to be added, like instruction counter (maybe), status register etc...)
