@@ -4,10 +4,14 @@
 
 This section should serve as an entry point for questions and possible answers until we have a better system.
 
-== Q1 ==
+== Questions regarding SX ==
+=== Q1 ===
 *Does the SX have instructions to move memory without registers? (matthias)*
 
 No answer, so far.
 
-== Q2 ==
+== Questions regarding GNU Compiler ==
+=== Q1 ===
 *And the nex question...*
+
+== Questions regarding GNU Binutils ==
