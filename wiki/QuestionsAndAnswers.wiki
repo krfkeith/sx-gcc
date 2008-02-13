@@ -5,13 +5,23 @@
 This section should serve as an entry point for questions and possible answers until we have a better system.
 
 == Questions regarding SX ==
-=== Q1 ===
+----
 *Does the SX have instructions to move memory without registers? (matthias)*
 
 No answer, so far.
 
-== Questions regarding GNU Compiler ==
-=== Q1 ===
-*And the nex question...*
+----
+*Does the SX have instructions to move a register into another? (matthias)*
 
+Yes, you can use
+{{{
+or $s1,0,$s2
+}}}
+to load register s2 into s1.
+----
+== Questions regarding GNU Compiler ==
+----
+*And the next question...*
+No answer, yet!
+----
 == Questions regarding GNU Binutils ==
