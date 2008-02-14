@@ -8,7 +8,8 @@ This section should serve as an entry point for questions and possible answers u
 ----
 *Does the SX have instructions to move memory without registers? (matthias)*
 
-No answer, so far.
+No. You allways need to involve a register. But this is the same on all other CPUs
+I know (EF).
 
 ----
 *Does the SX have instructions to move a register into another? (matthias)*
