@@ -6,7 +6,17 @@ This page is an entry point for other wiki or external pages describing
 the NEC SX CPU architecture. The details of the SX architecture were collected
 from documents freely available on the WEB.
 
+
 == History ==
+
+The first SX CPU (SX-1) was probably designed some time at the end of the 1980's.
+It was a vector CPU built of several LSIs in bipolar technology.
+
+The first SX Vector CPU in CMOS technology was launched in 1996, it was the NEC SX-4.
+Since then the SX CPU instruction set was kept compatible, with only small modifications, while the functional units and technology have evolved dramatically.
+
+The line of SX Vectorcomputers is documented at http://en.wikipedia.org/wiki/SX_architecture .
+
 
 == CPU Details ==
  * [SXRegisters SX CPU Registers]
