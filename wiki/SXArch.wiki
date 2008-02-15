@@ -8,19 +8,19 @@ from documents freely available on the WEB.
 
 == History ==
 
- * *CPU Details*
-  * [SXRegisters SX CPU Registers]
-  * [SX_CPU_units CPU functional units]
-  * [SX_instr_fmts Instruction formats and addressing modes]
-  * [SXopcodes Assembler mnemonics and opcodes]
+== CPU Details ==
+ * [SXRegisters SX CPU Registers]
+ * [SX_CPU_units CPU functional units]
+ * [SX_instr_fmts Instruction formats and addressing modes]
+ * [SXopcodes Assembler mnemonics and opcodes]
 
 
- * *Memory*
+== Memory ==
 
- * * [SX_memory Memory access]
+ * [SX_memory Memory access]
 
 
- * *other machine details*
+== Other machine details ==
 
- * * RCU, IXS, global memory
- * * ...
+ * RCU, IXS, global memory
+ * ...
