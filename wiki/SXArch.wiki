@@ -10,6 +10,7 @@ from documents freely available on the WEB.
 
 == CPU Details ==
 
- * Registers
- * CPU functional units
- * Addressing modes
+ * [SXRegisters SX CPU Registers]
+ * [SX_CPU_units CPU functional units]
+ * [SX_instr_modes Instruction types and addressing modes]
+ * ...
