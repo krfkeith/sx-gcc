@@ -1,0 +1,17 @@
+#summary SX Assembler mnemonics
+
+= SX Assembler Mnemonics =
+
+Huge list should be added here...
+
+
+=== Instruction Add-ons (mnemonic suffixes) ===
+
+|| {{{*}}} || enable masked operation ||
+|| {{{%}}} || specify an arithmetic unit C,,f,, = 1 ||
+|| {{{?}}} || specify selection mode C,,m,, = 1 ||
+|| {{{=}}} || clear high order 32 bits, C,,m,, = 1 for VLDL, VLDLX, VGTL, C,,x,,=1 for LDL, DLDL ||
+|| {{{<}}} || static prediction for no branching ||
+|| {{{>}}} || static prediction for branching ||
+|| {{{!}}} || enable extended operation C,,x,,=1 ||
+|| {{{@}}} || single prectision for floating point data and arithmetic ||
