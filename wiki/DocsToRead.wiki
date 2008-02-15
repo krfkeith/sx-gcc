@@ -1,0 +1,16 @@
+#summary Documentation to get started with SX-gcc development.
+
+= Getting started =
+
+There are many overviews on GCC internals on the web, just google for them. Some people who have ported the GCC backend to some new architectures have documented their work, and some of the presentations or papers are interesting for getting an overview:
+ * http://gcc.cookys.org/studio/cookys/reference/pgccp.ppt
+ * http://sslab.cs.ccu.edu.tw/course/toolchain/toolchain_2005/2004/porting_gcc.pdf
+ * ftp://ftp.axis.se/pub/users/hp/pgccfd/pgccfd-0.5.pdf
+ * http://archiv.tu-chemnitz.de/pub/2004/0107/data/thesis.ps
+
+= GCC documentation =
+
+The gcc documentation can be found at http://gcc.gnu.org/
+and the most interesting manual is the *GCC Internals Manual" [http://gcc.gnu.org/onlinedocs/gccint gccint]. A pdf version is available at the same site.
+
+The most important chapter for implementing the SX backend is chapter 14 on RTL.
