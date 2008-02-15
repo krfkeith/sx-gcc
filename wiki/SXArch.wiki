@@ -4,7 +4,8 @@
 
 This page is an entry point for other wiki or external pages describing
 the NEC SX CPU architecture. The details of the SX architecture were collected
-from documents freely available on the WEB.
+from documents freely available on the WEB or distributed without restrictions to
+SX users.
 
 
 == History ==
@@ -23,6 +24,7 @@ The line of SX Vectorcomputers is documented at http://en.wikipedia.org/wiki/SX_
  * [SX_CPU_units CPU functional units]
  * [SX_instr_fmts Instruction formats and addressing modes]
  * [SXopcodes Assembler mnemonics and opcodes]
+ * [SX_calling_conv SuperUX calling conventions:] registers and return values
 
 
 == Memory ==
