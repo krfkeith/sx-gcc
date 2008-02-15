@@ -9,11 +9,10 @@ from documents freely available on the WEB.
 == History ==
 
  * *CPU Details*
-
- * * [SXRegisters SX CPU Registers]
- * * [SX_CPU_units CPU functional units]
- * * [SX_instr_fmts Instruction formats and addressing modes]
- * * [SXopcodes Assembler mnemonics and opcodes]
+  * [SXRegisters SX CPU Registers]
+  * [SX_CPU_units CPU functional units]
+  * [SX_instr_fmts Instruction formats and addressing modes]
+  * [SXopcodes Assembler mnemonics and opcodes]
 
 
  * *Memory*
