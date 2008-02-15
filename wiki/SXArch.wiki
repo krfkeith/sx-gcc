@@ -1,0 +1,15 @@
+#summary Entry point for SX architecture details
+
+= SX Architecture =
+
+This page is an entry point for other wiki or external pages describing
+the NEC SX CPU architecture. The details of the SX architecture were collected
+from documents freely available on the WEB.
+
+== History ==
+
+== CPU Details ==
+
+ * Registers
+ * CPU functional units
+ * Addressing modes
