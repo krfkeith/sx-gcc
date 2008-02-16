@@ -2,7 +2,15 @@
 
 = Calling conventions =
 
-Add your content here.
+This will describe the calling convention for C programs. Fortran or other languages might differ from this scheme.
+
+The location of the arguments passed to a function is stored in $s34. The callee stores a copy of this entry in $s3, too.
+
+Judging from compiler output, it seems that the callee first saves registers starting from $s1 into the area pointed to by $s2 - 272:
+{{{
+stm $s1,8,-272(,$s2)
+}}}
+Then that address is stored in $s1 as the bottom of the current stack frame.
 
 = Return values =
 
