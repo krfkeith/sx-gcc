@@ -3,5 +3,5 @@
 == Memory Access ==
 
  * Virtual address is 40 bits wide (results in 1 TB address space)
- * Four possible page sizes: 32 kB (2^15^), 4 MB (2^22^), 16 MB (2^24^) and 64 MB (2^26^)
- * Partial space: Virtual address space is also divided in 256 contiguous pages
+ * Four possible page sizes in three groups: 32 kB (2^15^), 4 MB (2^22^) and 16 MB (2^24^) / 64 MB (2^26^)
+ * Partial space: Virtual address space is also divided in units of 256 contiguous pages
