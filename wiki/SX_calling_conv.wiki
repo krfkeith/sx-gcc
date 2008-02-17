@@ -22,3 +22,17 @@ Then that address is stored in $s1 as the bottom of the current stack frame.
 Return values are sored in registers $s123 - $s127.
 
 = Stack Layout =
+
+= Register Usage =
+This section descibes the registers that are used in functions and are therfore not usable in the function itself because they serve a certain purpose that must be maintained during function execution.
+
+|| *Register* || *Purpose* ||
+|| $s0 || Max. address that the stack can expand to ||
+|| $s1 || Lowest address of stack area ||
+|| $s2 || Top of the current stack frame ||
+|| $s3 || Function copy of $s34. When calling another function from within a function it is important to remeber the parameter entry because for the other function call $s34 must be overwritten ||
+|| $s4 || Pointer to linkage section ||
+|| $s32 || Return address. The callee stores it on its stack. ||
+|| $s33 || Entry address of the current function. It seems this is not put onto the stack ||
+|| $s34 || Pointer to the functions argument list. Set by the caller (and copied into $s3 by the function itself) ||
+|| $s123 - $s127 || Function return value(s) ||
