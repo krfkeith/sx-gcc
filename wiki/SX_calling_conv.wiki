@@ -1,21 +1,24 @@
-#summary SuperUX calling conventions and return values
+#summary SuperUX function calls
+= Function calls =
+
+== Function call preparation ==
+ * Prepare argument list
+ * Load entry address into register $s33
+ * Set $s34 to the start of the argument list
+ * Call function with {{{ bsic $s32, ($s33) }}}
+
+== Called function ==
+ * Save registers $s1 to $s8 to stack {{{ stm $s1,8,-272(,$s2) }}}
+ * Set current stack frame: {{{ lea $s1,-272(,$s2) }}}
+ * Copy parameter argument pointer: {{{ or $s3,0,$s34 }}}
+ * Jump to monitoring call, eventually {{{ bh $s8,-20(,$s33) }}}
+ * Save return address on stack {{{ sts $s32,248(0,$s1) }}}
+ * Not completed, yet
 
 = Calling conventions =
 
 This will describe the calling convention for C programs. Fortran or other languages might differ from this scheme.
 
-The location of the arguments passed to a function is stored in $s34. The callee stores a copy of this entry in $s3, too.
-The caller saves the return address in $s32 while jumping to the callee whose address is stored in $s33.
-
-{{{
-bsic $s32, ($s33)
-}}}
-
-Judging from compiler output, it seems that the callee first saves registers starting from $s1 into the area pointed to by $s2 - 272:
-{{{
-stm $s1,8,-272(,$s2)
-}}}
-Then that address is stored in $s1 as the bottom of the current stack frame.
 
 = Return values =
 
