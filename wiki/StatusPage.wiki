@@ -1,0 +1,8 @@
+#summary Status of the port.
+
+= Status =
+
+There already exists a framework within the regular GCC 4.2.2 tree that allows to compile an SX cross compiler on i386 / x86_64 architectures (others have not been tested!) The port is not completed and compilation stops with an error while compiling some parts of libgcc. Still the compilation steps leaves {{{xgcc}}} and {{{cc1}}} along with several other executables that can be used to compile at lease simple C programs.
+
+The build process of the cross-compiler can be configured in a seperate directory with the command {{{$SRCDIR/configure --target=sx8-nec-superux --enable-languages=c}}} 
+Add your content here.
