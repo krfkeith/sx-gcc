@@ -10,7 +10,7 @@ There are many overviews on GCC internals on the web, just google for them. Some
 
 = GCC documentation =
 
-The gcc documentation can be found at http://gcc.gnu.org/
-and the most interesting manual is the *GCC Internals Manual" [http://gcc.gnu.org/onlinedocs/gccint gccint]. A pdf version is available at the same site.
+The gcc documentation can be found at [http://gcc.gnu.org/ http://gcc.gnu.org]
+and the most interesting manual is the *GCC Internals Manual* [http://gcc.gnu.org/onlinedocs/gccint gccint]. A pdf version is available at the same site.
 
 The most important chapter for implementing the SX backend is chapter 14 on RTL.
