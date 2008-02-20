@@ -5,7 +5,7 @@
  * Prepare argument list
  * Load entry address into register $s33
  * Set $s34 to the start of the argument list
- * Call function with {{{ bsic $s32, ($s33) }}}
+ * Call function with {{{bsic $s32,($s33)}}}. That will store the current IC + 8 in register $s32 as the return address for the callee.
 
 == Called function ==
  * Save registers $s1 to $s8 to stack {{{ stm $s1,8,-272(,$s2) }}}
