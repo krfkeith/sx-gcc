@@ -1,0 +1,5 @@
+#summary Target machine description
+
+= Machine Description =
+
+The machine description is a lisp-like language that uses constructs of the [RTL register transfer language].
