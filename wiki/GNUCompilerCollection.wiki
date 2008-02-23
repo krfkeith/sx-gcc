@@ -23,12 +23,6 @@ The pseudo registers start then from 217.
 
 (More to be added, like instruction counter (maybe), status register etc...)
 
-== RTL ==
+== [RTL RTL] ==
 
-Miminum required set of instruction patterns
-  * mov _m_
-  * jump
-  * nop
-  * add _m_ 3
-  * ...
-
+Internally the GNU compiler uses a so called [RTL Register Transfer Language (RTL)] that describes the operations that the compiler made out of the language source text file. Optimizations are (partially) done in this language.
