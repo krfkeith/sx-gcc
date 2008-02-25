@@ -6,8 +6,8 @@
  * Pagesizes: 32k, 4m, 16m/64m '''Page Frames'''
  * Small pages only in lower 32GB (HW convention)/4GB (SW convention)
  * Byte address space, but natural aligned
- * '''Partial Space''' has 256 '''Page Franes''' (8M-16GB depending on pgae size
- * ''observation'': In Super-UX, a smallpage executable can not use more than 5 '''Partial Spaces'''
+ * '''Partial Space''' has 256 '''Page Frames''' (8M-16GB depending on page size
+ * ''observation'': In Super-UX, a smallpage executable can not allocate more than 5 '''Partial Spaces'''
 
 = ATB =
  * HW caching of '''partial spaces''' using '''ATB'''(address translation buffer), with 40 entries for 40 ''''partial spaces'''
