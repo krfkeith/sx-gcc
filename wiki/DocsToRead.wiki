@@ -19,4 +19,4 @@ The most important chapter for implementing the SX backend is chapter 14 on RTL.
 
 = Own GCC docs =
 
-[wiki:GCCDocs Page with own GCC docs]
+[GCCDocs Page with own GCC docs]
