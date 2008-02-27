@@ -6,7 +6,7 @@
  * Pagesizes: 32k, 4m, 16m/64m '''Page Frames'''
  * Small pages only in lower 32GB (HW convention)/4GB (SW convention)
  * Byte address space, but natural aligned
- * '''Partial Space''' has 256 '''Page Frames''' (8M-16GB depending on page size
+ * '''Partial Space''' has 256 '''Page Frames''' (8M-16GB depending on page size)
  * ''observation'': In Super-UX, a smallpage executable can not allocate more than 5 '''Partial Spaces'''
 
 = ATB =
@@ -30,6 +30,6 @@
 
 = PTE discussion =
  * attributes not yet clear
- * no referended bit (minor problem)
+ * no referenced bit (minor problem)
  * no modified bit (major problem)
  * VAX has no modified bit either
