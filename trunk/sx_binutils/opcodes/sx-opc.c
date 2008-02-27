@@ -718,22 +718,23 @@ const struct sx_opcode sx_opcodes[] = {
 const int sx_num_opcodes = sizeof (sx_opcodes) / sizeof (sx_opcodes[0]);
 
 char *sx_misc_register[] = {
-	"vecc",
-	"fpec",
-	"ocmcc", /* operand cache miss clock counter */
-	"bccc",  /* bank conflict clock counter */
-	"didr",  /* debugging identifier register */
-	"sar",
-	"icmcc",
-	"sidr",
-	"bpfc",
-	"usrcc",
-	"iphcc",
-	"spec",
-	"varec",
-	"vldec",
-	"mnubc",
-	"sracc",
+	"vecc",  /* Vector Execution Clock Counter */
+	"fpec",  /* Floating-Point data Execution Counter */
+	"ocmcc", /* Operand Cache Miss Clock Counter */
+	"bccc",  /* Bank Conflict Clock Counter */
+	"didr",  /* Debugging IDentifier Register */
+	"sar",   /*  */
+	"icmcc", /* Instruction Cache Miss Clock Counter */
+	"sidr",  /* Secure IDentifier Register */ 
+	"bpfc",  /* Branch Prediction Failure Counter */
+	"usrcc", /* User Clock Counter */
+	"iphcc", /* Instruction Pipeline Hold Clock Counter */
+	"spec",  /* Scalar Pipeline Execution Counter */
+	"varec", /* Vector Arithmetic Execution Clock Counter */
+	"vldec", /* Vector Load Execution Clock Counter */
+	"mnubc", /* Memory Network Conflict Counter ??????? This should be mnccc!!! */
+	"sracc", /* Shared Resource Access Clock Counter */
+/* There are still some registers missing! */
 	"midr0",
 	"midr1",
 	"midr2",
