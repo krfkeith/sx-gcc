@@ -16,7 +16,7 @@
  * no usage information, so which partial space to remove?
 
 = PTE (usage in Super-UX) =
- * see ''/sys/immu.h''
+ * see ''/include/sys/immu.h''
  * Page Table Entry has 32 bits
   * 20 bits PB (page base)
   * 1 bit for locking page in memory
