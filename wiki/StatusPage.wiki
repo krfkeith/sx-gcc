@@ -24,6 +24,9 @@ The build process will/might crash in some place. But in the subdirectory _gcc_ 
 *Test gcc*
 {{{
 cd ../test
-env PATH=$PATH:$BUILDDIR/gcc gcc-cross -S test.c
+env PATH=$PATH:$BUILDDIR/gcc gcc-cross -S -dP test.c
 }}}
 and look at the produced assembler file _test.s_.
+
+The command line options related to dumping RTL at any of the compiler passes are interesting. *-dP* dumps RTL code as comment into the assembler output. But many more options can be used, check out the gcc manpage and options starting with *-fdump-rtl-*. For dumping all RTL intermediate files try *-fdump-rtl-all*.
+
