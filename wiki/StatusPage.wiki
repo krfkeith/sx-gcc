@@ -4,7 +4,26 @@
 
 There already exists a framework within the regular GCC 4.2.2 tree that allows to compile an SX cross compiler on i386 / x86_64 architectures (others have not been tested!) The port is not completed and compilation stops with an error while compiling some parts of libgcc. Still the compilation steps leaves {{{xgcc}}} and {{{cc1}}} along with several other executables that can be used to compile at lease simple C programs.
 
-The build process of the cross-compiler can be configured in a seperate directory with the command 
+Step-by-step instructions for building what can be built and testing it:
+
+*Check out the svn tree*
 {{{
-$SRCDIR/configure --target=sx8-nec-superux --enable-languages=c
-}}} 
+svn co https://source.tree.se/svn/sx-gcc/trunk
+}}}
+
+*Build gcc in a separate build directory*
+{{{
+mkdir build
+cd build
+export BUILDDIR=`pwd`
+../trunk/configure --target=sx8-nec-superux --enable-languages=c
+make
+}}}
+The build process will/might crash in some place. But in the subdirectory _gcc_ you should find the built binaries *cc1*, *gcc-cross*, *cpp*, *xgcc*.
+
+*Test gcc*
+{{{
+cd ../test
+env PATH=$PATH:$BUILDDIR/gcc gcc-cross -S test.c
+}}}
+and look at the produced assembler file _test.s_.
