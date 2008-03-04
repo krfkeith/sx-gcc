@@ -8,6 +8,7 @@
  * Byte address space, but natural aligned
  * '''Partial Space''' has 256 '''Page Frames''' (8M-16GB depending on page size)
  * ''observation'': In Super-UX, a smallpage executable can not allocate more than 5 '''Partial Spaces'''
+ * Cache is logical addressed, software has to flush cache when changing address space
 
 = ATB =
  * HW caching of '''partial spaces''' using '''ATB'''(address translation buffer), with 40 entries for 40 ''''partial spaces'''
