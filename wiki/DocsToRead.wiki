@@ -8,7 +8,8 @@ There are many overviews on GCC internals on the web, just google for them. Some
  * ftp://ftp.axis.se/pub/users/hp/pgccfd/pgccfd-0.5.pdf
  * http://archiv.tu-chemnitz.de/pub/2004/0107/data/thesis.ps
 
-Several interesting papers for later parts of this project with regard to vectorization may be found at the [http://www.gccsummit.org GCC-Summit pages]:
+Several interesting papers for later parts of this project with regard to vectorization may be found at the [http://www.gccsummit.org GCC-Summit pages]. The proceedings of the 2007 summit can be obtained [http://ols.108.redhat.com/2007/GCC-Reprints/GCC2007-Proceedings.pdf here].
+
  * Vladimir N. Makarov, "The Integrated register allocator for GCC", GCC-Summit, 2007, p. 77
  * Roberto Costa, Andrea C. Ornstein and Erven Rohou, "CLI Back-Endin GCC", GCC-Summit 2007, p. 111
 
