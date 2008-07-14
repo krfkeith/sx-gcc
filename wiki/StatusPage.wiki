@@ -9,7 +9,7 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 || *tool*      || *status* || *ticket list* || *notes* ||
 || ld        || TODO || TODO || ||
 || as        || TODO || TODO || ||
-|| objdump   || ported, mostly works, some issues in decoding addresses remain || TODO || ||
+|| objdump   || ported, mostly works, some issues in decoding addresses remain || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
 || addr2line || TODO || TODO || ||
 || ar        || TODO || TODO || ||
 || c++filt   || TODO || TODO || ||
