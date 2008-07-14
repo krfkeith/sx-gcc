@@ -4,29 +4,45 @@
 
 There already exists a framework within the regular GCC 4.2.2 tree that allows to compile an SX cross compiler on i386 / x86_64 architectures (others have not been tested!) The port is not completed and compilation stops with an error while compiling some parts of libgcc. Still the compilation steps leaves {{{xgcc}}} and {{{cc1}}} along with several other executables that can be used to compile at lease simple C programs.
 
-Step-by-step instructions for building what can be built and testing it:
+== binutils port ==
 
-*Check out the svn tree*
-{{{
-svn co https://source.tree.se/svn/sx-gcc/trunk
-}}}
+|| *tool*      || *status* || *ticket list* || *notes* ||
+|| ld        || TODO || TODO || ||
+|| as        || TODO || TODO || ||
+|| objdump   || ported, mostly works, some issues in decoding addresses remain || TODO || ||
+|| addr2line || TODO || TODO || ||
+|| ar        || TODO || TODO || ||
+|| c++filt   || TODO || TODO || ||
+|| gprof     || TODO || TODO || ||
+|| nlmconv   || TODO || TODO || ||
+|| nm        || TODO || TODO || ||
+|| objcopy   || TODO || TODO || ||
+|| ranlib    || TODO || TODO || ||
+|| readelf   || TODO || TODO || ||
+|| size      || TODO || TODO || ||
+|| strings   || TODO || TODO || ||
+|| strip     || TODO || TODO || ||
+|| dlltool   || TODO || TODO || ||
+|| windmc    || TODO || TODO || we don't really want this one ;) ||
+|| windres   || TODO || TODO || we don't really want this one ;) ||
 
-*Build gcc in a separate build directory*
-{{{
-mkdir build
-cd build
-export BUILDDIR=`pwd`
-../trunk/configure --target=sx8-nec-superux --enable-languages=c
-make
-}}}
+== gcc port ==
+
+TODO
+
+= Checking out and building the source =
+
+Have a look at http://source.tree.se/sx/sx-gcc/ for instructions on checking out the source and building it.
+
 The build process will/might crash in some place. But in the subdirectory _gcc_ you should find the built binaries *cc1*, *gcc-cross*, *cpp*, *xgcc*.
 
-*Test gcc*
+= Testing =
+
+Do a
 {{{
 cd ../test
 env PATH=$PATH:$BUILDDIR/gcc gcc-cross -S -dP test.c
 }}}
-and look at the produced assembler file _test.s_.
+... and look at the produced assembler file _test.s_.
 
 The command line options related to dumping RTL at any of the compiler passes are interesting. *-dP* dumps RTL code as comment into the assembler output. But many more options can be used, check out the gcc manpage and options starting with *-fdump-rtl-*. For dumping all RTL intermediate files try *-fdump-rtl-all*.
-
