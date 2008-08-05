@@ -9,13 +9,13 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 || *tool*      || *status* || *ticket list* || *notes* ||
 || ld        || TODO || TODO || ||
 || as        || TODO || TODO || ||
-|| objdump   || ported, mostly works, some issues in decoding addresses remain || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
+|| objdump   || ported, works, minor issues caused by bfd bugs remain || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
 || addr2line || TODO || TODO || ||
-|| ar        || TODO || TODO || ||
+|| ar        || ported; -p, -t, -d work; extraction and archiving not; || [http://code.google.com/p/sx-gcc/issues/list?q=label:ar issues] || ||
 || c++filt   || TODO || TODO || ||
 || gprof     || TODO || TODO || ||
 || nlmconv   || TODO || TODO || ||
-|| nm        || TODO || TODO || ||
+|| nm        || ported; works with ordinary object files; need to test with executables and archives; some issues with linenos of undefined symbols remain (due to bfd bugs) || [http://code.google.com/p/sx-gcc/issues/list?q=label:nm issues] || ||
 || objcopy   || TODO || TODO || ||
 || ranlib    || TODO || TODO || ||
 || readelf   || TODO || TODO || ||
