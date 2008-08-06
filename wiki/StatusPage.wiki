@@ -9,16 +9,16 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 || *tool*      || *status* || *ticket list* || *notes* ||
 || ld        || TODO || TODO || ||
 || as        || TODO || TODO || ||
-|| objdump   || ported, works, minor issues caused by bfd bugs remain || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
+|| objdump   || ported, mostly works, relocations need to be fixed before fixing last bugs || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
 || addr2line || TODO || TODO || ||
-|| ar        || ported; -p, -t, -d work; extraction and archiving not; || [http://code.google.com/p/sx-gcc/issues/list?q=label:ar issues] || ||
+|| ar        || ported; everything works; requires rigorous interop testing with native SX tools || [http://code.google.com/p/sx-gcc/issues/list?q=label:ar issues] || ||
 || c++filt   || TODO || TODO || ||
 || gprof     || TODO || TODO || ||
 || nlmconv   || TODO || TODO || ||
-|| nm        || ported; works with ordinary object files; need to test with executables and archives; some issues with linenos of undefined symbols remain (due to bfd bugs) || [http://code.google.com/p/sx-gcc/issues/list?q=label:nm issues] || ||
+|| nm        || ported; works with ordinary object files; need to test with executables and archives; some issues with linenos of undefined symbols remain (due to unsupported relocations) || [http://code.google.com/p/sx-gcc/issues/list?q=label:nm issues] || ||
 || objcopy   || TODO || TODO || ||
 || ranlib    || TODO || TODO || ||
-|| readelf   || TODO || TODO || ||
+|| readelf   || TODO || TODO || when building for COFF/SX target, we don't need this one ||
 || size      || TODO || TODO || ||
 || strings   || TODO || TODO || ||
 || strip     || TODO || TODO || ||
