@@ -19,7 +19,7 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 || objcopy   || TODO || TODO || ||
 || ranlib    || ported; everything works; || TODO || ||
 || readelf   || TODO || TODO || when building for COFF/SX target, we don't need this one ||
-|| size      || TODO || TODO || ||
+|| size      || ported; everything works; || TODO || ||
 || strings   || ported; everything works; || TODO || ||
 || strip     || TODO || TODO || ||
 || dlltool   || TODO || TODO || ||
