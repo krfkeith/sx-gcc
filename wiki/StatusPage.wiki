@@ -10,7 +10,7 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 || ld        || TODO || TODO || ||
 || as        || TODO || TODO || ||
 || objdump   || ported, doesn't throw errors anymore when parsing relocation table, still needs to be thoroughly tested. || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
-|| addr2line || ported || TODO || ||
+|| addr2line || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:addr2line issues] || ||
 || ar        || ported; everything works; || [http://code.google.com/p/sx-gcc/issues/list?q=label:ar issues] || ||
 || c++filt   || TODO || TODO || ||
 || gprof     || TODO || TODO || ||
