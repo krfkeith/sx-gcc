@@ -21,7 +21,7 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 || readelf   || TODO || TODO || when building for COFF/SX target, we don't need this one ||
 || size      || ported; everything works; || TODO || ||
 || strings   || ported; everything works; || TODO || ||
-|| strip     || TODO || TODO || ||
+|| strip     || ported; intensive testing still needs to be done to make sure that "strip" is behaving as expected || TODO || ||
 || dlltool   || TODO || TODO || ||
 || windmc    || TODO || TODO || we don't really want this one ;) ||
 || windres   || TODO || TODO || we don't really want this one ;) ||
