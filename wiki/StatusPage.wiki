@@ -16,7 +16,7 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 || gprof     || TODO || TODO || ||
 || nlmconv   || TODO || TODO || ||
 || nm        || ported; works with ordinary object files and archives; need to test with executables; some issues with linenos of undefined symbols remain (due to unsupported relocations) || [http://code.google.com/p/sx-gcc/issues/list?q=label:nm issues] || ||
-|| objcopy   || ported; intensive testing still needs to be done to make sure that "objcopy" is behaving as expected  || [http://code.google.com/p/sx-gcc/issues/list?q=label:objcopy issues] || ||
+|| objcopy   || mostly ported; intensive testing still needs to be done to make sure that "objcopy" is behaving as expected  || [http://code.google.com/p/sx-gcc/issues/list?q=label:objcopy issues] || ||
 || ranlib    || ported; everything works; || TODO || ||
 || readelf   || TODO || TODO || when building for COFF/SX target, we don't need this one ||
 || size      || ported; everything works; || TODO || ||
