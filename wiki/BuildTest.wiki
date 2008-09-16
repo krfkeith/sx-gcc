@@ -21,7 +21,7 @@ ln -s ../../sx-includes/ include
 cd ../..
 }}}
 
-Build binutils
+Build binutils:
 {{{
 cd sx-binutils 
 ./configure --target=sx8-nec-superux --enable-languages=c --prefix=`pwd`/../sx
@@ -30,16 +30,26 @@ make install
 cd ..
 }}}
 
-Fix for ld and as, not yet working in binutils:
+Fix for ld and as, not yet working in binutils. Your PATH environment variable should be set such that *sxld* and *sxas* are in the execution path.
 {{{
-wget http://source.tree.se/sx/files/fake_as
-wget http://source.tree.se/sx/files/fake_ld
-chmod u+x fake_as fake_ld
 cd sx/sx8-nec-superux/bin/
 mv as as.org
 mv ld ld.org
-ln -s ../../../fake_as as
-ln -s ../../../fake_ld ld
+cat <<'EOF' >as
+#!/bin/sh
+o=`mktemp`
+sxas "$@" >$o >2>&1
+err=$?
+grep -v "Warning: illegal offset" $o
+rm -f $o
+exit $err
+EOF
+chmod 755 as
+cat <<'EOF' >ld
+#!/bin/sh
+exec sxld "$@"
+EOF
+chmod 755 ld
 cd ../../..
 }}}
 
@@ -47,7 +57,10 @@ Build gcc:
 {{{
 mkdir -p sx-build
 cd sx-build
-../sx-gcc/configure  --target=sx8-nec-superux --enable-languages=c --prefix=`pwd`/../sx
-make
-make check
+../sx-gcc/configure  --target=sx8-nec-superux --enable-languages=c \
+  --prefix=`pwd`/../sx --disable-libssp --disable-threads
+make -j 2
 }}}
+
+Run tests...
+TODO
