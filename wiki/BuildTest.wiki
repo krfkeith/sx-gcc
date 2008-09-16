@@ -30,8 +30,8 @@ make install
 cd ..
 }}}
 
+Fix for ld and as, not yet working in binutils:
 {{{
-#### Fix for nonworking Binutils ####
 wget http://source.tree.se/sx/files/fake_as
 wget http://source.tree.se/sx/files/fake_ld
 chmod u+x fake_as fake_ld
@@ -41,8 +41,10 @@ mv ld ld.org
 ln -s ../../../fake_as as
 ln -s ../../../fake_ld ld
 cd ../../..
-#####################################
+}}}
 
+Build gcc:
+{{{
 mkdir -p sx-build
 cd sx-build
 ../sx-gcc/configure  --target=sx8-nec-superux --enable-languages=c --prefix=`pwd`/../sx
