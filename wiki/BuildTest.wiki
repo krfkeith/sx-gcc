@@ -35,6 +35,7 @@ Fix for ld and as, not yet working in binutils. Your PATH environment variable s
 cd sx/sx8-nec-superux/bin/
 mv as as.org
 mv ld ld.org
+
 cat <<'EOF' >as
 #!/bin/sh
 o=`mktemp`
@@ -44,11 +45,14 @@ grep -v "Warning: illegal offset" $o
 rm -f $o
 exit $err
 EOF
+
 chmod 755 as
+
 cat <<'EOF' >ld
 #!/bin/sh
 exec sxld "$@"
 EOF
+
 chmod 755 ld
 cd ../../..
 }}}
