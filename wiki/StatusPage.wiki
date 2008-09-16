@@ -32,9 +32,9 @@ TODO
 
 = Checking out and building the source =
 
-Have a look at http://source.tree.se/sx/sx-gcc/ for instructions on checking out the source and building it.
+Instructions are on the [BuildTest Building and Testing] wiki page.
 
-The build process will/might crash in some place. But in the subdirectory _gcc_ you should find the built binaries *cc1*, *gcc-cross*, *cpp*, *xgcc*.
+The build process might crash in some place. But in the subdirectory _gcc_ you should find the built binaries *cc1*, *gcc-cross*, *cpp*, *xgcc*.
 
 = Testing =
 
