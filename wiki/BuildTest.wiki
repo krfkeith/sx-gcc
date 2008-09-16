@@ -1,0 +1,51 @@
+#summary Building and testing sx-gcc and sx-binutils.
+
+= Introduction =
+
+This page describes how to download and build sx-gcc and sx-binutils. Right now this should be done on a machine on which the SX cross-kit is installed. Until we get the GNU assembler and linker running, sxld and sxas need to be used. Right now also the libc delivered with the SX needs to be used!
+
+= Details =
+
+Check out repositories:
+{{{
+svn co https://source.tree.se/sx/sx-binutils/svn/trunk sx-binutils
+svn co https://source.tree.se/sx/sx-gcc/svn/trunk sx-gcc
+svn co https://source.tree.se/sx/sx-gcc/svn/includes sx-includes
+}}}
+
+Set up includes (WARNING: these are fake includes, copied from x86_64 and not really tested for full compatibility with the SX libc API!)
+{{{
+mkdir -p sx/sx8-nec-superux
+cd sx/sx8-nec-superux
+ln -s ../../sx-includes/ include
+cd ../..
+}}}
+
+Build binutils
+{{{
+cd sx-binutils 
+./configure --target=sx8-nec-superux --enable-languages=c --prefix=`pwd`/../sx
+make
+make install
+cd ..
+}}}
+
+{{{
+#### Fix for nonworking Binutils ####
+wget http://source.tree.se/sx/files/fake_as
+wget http://source.tree.se/sx/files/fake_ld
+chmod u+x fake_as fake_ld
+cd sx/sx8-nec-superux/bin/
+mv as as.org
+mv ld ld.org
+ln -s ../../../fake_as as
+ln -s ../../../fake_ld ld
+cd ../../..
+#####################################
+
+mkdir -p sx-build
+cd sx-build
+../sx-gcc/configure  --target=sx8-nec-superux --enable-languages=c --prefix=`pwd`/../sx
+make
+make check
+}}}
