@@ -2,7 +2,7 @@
 
 = Status =
 
-There already exists a framework within the regular GCC 4.2.2 tree that allows to compile an SX cross compiler on i386 / x86_64 architectures (others have not been tested!) The port is not completed and compilation stops with an error while compiling some parts of libgcc. Still the compilation steps leaves {{{xgcc}}} and {{{cc1}}} along with several other executables that can be used to compile at lease simple C programs.
+There already exists a framework within the regular GCC 4.2.2 tree that allows to compile an SX cross compiler on i386 / x86_64 architectures (others have not been tested!) The port is not completed and compilation might stop with an error while compiling some parts of libgcc. Please follow the steps on [BuildTest this page] to overcome the difficulties. Anyway, the compilation steps leave {{{xgcc}}} and {{{cc1}}} along with several other executables that can be used to compile simple C programs and investigate the generated assembler source.
 
 == binutils port ==
 
