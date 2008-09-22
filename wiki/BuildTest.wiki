@@ -66,5 +66,10 @@ cd sx-build
 make -j 2
 }}}
 
+GCC build will most likely fail when it starts cross-compiling things like libgcc2. We need you to do the following with each bug encountered at this stage:
+ * move to the directory where the build failed (make will spit out "Leaving directory xyz" when it fails),
+ * reproduce the whole command line that failed (it will most likely begin with "/home/jaka/dev/sx/gcc/build/./gcc/xgcc"), and add "-save-temps -v" to it. run it!
+ * now attach the whole output of this run to the bug report, as well as the intermediate files (preprocessed C source and generated assembler source, if they were generated)
+
 Run tests...
 TODO
