@@ -7,21 +7,21 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 == binutils port ==
 
 || *tool*      || *status* || *ticket list* || *notes* ||
-|| ld        || TODO || TODO || ||
-|| as        || ongoing port: parsing and code generation || TODO || ||
-|| objdump   || mostly ported; relocations are not fully supported || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
-|| addr2line || ported; everything works; || [http://code.google.com/p/sx-gcc/issues/list?q=label:addr2line issues] || ||
-|| ar        || ported; everything works; || [http://code.google.com/p/sx-gcc/issues/list?q=label:ar issues] || ||
+|| ld        || port started || [http://code.google.com/p/sx-gcc/issues/list?q=label:ld issues] || ||
+|| as        || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:gas issues] || ||
+|| objdump   || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
+|| addr2line || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:addr2line issues] || ||
+|| ar        || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:ar issues] || ||
 || c++filt   || TODO || TODO || ||
 || gprof     || TODO || TODO || ||
 || nlmconv   || TODO || TODO || ||
-|| nm        || mostly ported; relocations are not fully supported || [http://code.google.com/p/sx-gcc/issues/list?q=label:nm issues] || ||
-|| objcopy   || mostly ported; relocations are not fully supported  || [http://code.google.com/p/sx-gcc/issues/list?q=label:objcopy issues] || ||
-|| ranlib    || ported; everything works; || TODO || ||
+|| nm        || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:nm issues] || ||
+|| objcopy   || ported  || [http://code.google.com/p/sx-gcc/issues/list?q=label:objcopy issues] || ||
+|| ranlib    || ported || TODO || ||
 || readelf   || TODO || TODO || when building for COFF/SX target, we don't need this one ||
-|| size      || ported; everything works; || TODO || ||
-|| strings   || ported; everything works; || TODO || ||
-|| strip     || ported; everything works; || [http://code.google.com/p/sx-gcc/issues/list?q=label:strip issues] || ||
+|| size      || ported || TODO || ||
+|| strings   || ported || TODO || ||
+|| strip     || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:strip issues] || ||
 || dlltool   || TODO || TODO || ||
 || windmc    || TODO || TODO || we don't really want this one ;) ||
 || windres   || TODO || TODO || we don't really want this one ;) ||
