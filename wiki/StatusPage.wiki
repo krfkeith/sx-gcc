@@ -35,8 +35,6 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 
 Instructions are on the [BuildTest Building and Testing] wiki page.
 
-The build process might crash in some place. But in the subdirectory _gcc_ you should find the built binaries *cc1*, *gcc-cross*, *cpp*, *xgcc*.
-
 = Testing =
 
 Do a
