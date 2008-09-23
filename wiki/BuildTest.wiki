@@ -30,7 +30,12 @@ make install
 cd ..
 }}}
 
-Fix for ld and as, not yet working in binutils. Your PATH environment variable should be set such that *sxld* and *sxas* are in the execution path.
+GNU assembler (and to a lesser extent the linker) are mostly working and you can use them. However, you can choose to use native assembler and/or linker by following these steps:
+
+1. make sure your PATH environment variable is set in such a manner that *sxld* and *sxas* are in the execution path.
+
+2. create wrapper scripts for the assembler and linker.
+
 {{{
 cd sx/sx8-nec-superux/bin/
 mv as as.org
@@ -66,10 +71,13 @@ cd sx-build
 make -j 2
 }}}
 
-GCC build will most likely fail when it starts cross-compiling things like libgcc2. We need you to do the following with each bug encountered at this stage:
+If GCC build fails during cross compilation of libgcc2 or other libraries for the SX cross environment, we need you to do the following with each bug encountered at this stage:
  * move to the directory where the build failed (make will spit out "Leaving directory xyz" when it fails),
  * reproduce the whole command line that failed (it will most likely begin with "/home/jaka/dev/sx/gcc/build/./gcc/xgcc"), and add "-save-temps -v" to it. run it!
  * now attach the whole output of this run to the bug report, as well as the intermediate files (preprocessed C source and generated assembler source, if they were generated)
 
 Run tests...
+
+(make check, of course, fails)
+
 TODO
