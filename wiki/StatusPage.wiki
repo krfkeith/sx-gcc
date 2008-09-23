@@ -28,7 +28,8 @@ There already exists a framework within the regular GCC 4.2.2 tree that allows t
 
 == gcc port ==
 
-TODO
+|| *tool*      || *status* || *ticket list* || *notes* ||
+|| gcc        || port almost done || [http://code.google.com/p/sx-gcc/issues/list?q=label:gcc issues] || ||
 
 = Checking out and building the source =
 
