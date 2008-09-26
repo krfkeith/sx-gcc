@@ -76,8 +76,40 @@ If GCC build fails during cross compilation of libgcc2 or other libraries for th
  * reproduce the whole command line that failed (it will most likely begin with "/home/jaka/dev/sx/gcc/build/./gcc/xgcc"), and add "-save-temps -v" to it. run it!
  * now attach the whole output of this run to the bug report, as well as the intermediate files (preprocessed C source and generated assembler source, if they were generated)
 
-Run tests...
+= Testing =
 
-(make check, of course, fails)
+== Setting up DejaGNU ==
 
-TODO
+For running the GCC automated testing from the cross-compile machine you must have access to a SX machine either through ssh or rsh. Let's suppose your SX is called *v00* and you can access it though ssh from the compile machine. The simplest configuration is:
+
+ # In your home directory create the file ~/.dejagnurc containing
+{{{
+set boards_dir ~/.dejagnu_boards
+}}}
+ # Create the ~/.dejagnu_boards directory and in it a file named *v00.exp* containing the description how to access the remote node:
+{{{
+load_generic_config "unix";
+set_board_info hostname v00;
+set_board_info username efocht;
+set_board_info shell_prompt    "$ ";
+set_board_info rsh_prog /usr/bin/ssh;
+set_board_info rcp_prog /usr/bin/scp;
+}}}
+
+== Running tests ==
+
+From inside the GCC build directory you can now run tests by calling:
+{{{
+env RUNTESTFLAGS="--target_board=v00" make check
+}}}
+
+It is possible to limit the range of tests, for example:
+{{{
+env RUNTESTFLAGS="--target_board=v00 compile.exp" make check
+env RUNTESTFLAGS="--target_board=v00 execute.exp" make check
+env RUNTESTFLAGS="--target_board=v00 builtins.exp" make check
+}}}
+
+If you need more verbosity, you can add several *-v* to the RUNTESTFLAGS.
+
+The default output of the tests is limited and mainly shows failures. The full output is stored in the file gcc/testsuite/gcc/gcc.log .
