@@ -84,7 +84,7 @@ cd ../..
 
 Build gcc:
 {{{
-mkdir -p sx-build
+mkdir sx-build
 cd sx-build
 ../sx-gcc/configure  --target=sx8-nec-superux --enable-languages=c \
   --prefix=`pwd`/../sx --disable-libssp --disable-threads
