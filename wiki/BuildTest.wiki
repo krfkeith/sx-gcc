@@ -81,6 +81,29 @@ mv sx8-nec-superux-ld sx8-nec-superux-ld_gnu
 ln -s ../sx8-nec-superux/bin/ld_sxld sx8-nec-superux-ld
 cd ../..
 }}}
+ # if you want to test with *sxas* instead of *GNU as*, create a wrapper script for *sxas*:
+{{{
+cd sx/sx8-nec-superux/bin/
+mv as as_gnu
+
+cat <<'EOF' >as_sxas
+#!/bin/sh
+ofile=`mktemp`
+sxas -h sx6 "$@" >$ofile 2>&1
+err=$?
+grep -v "Warning: illegal offset" $ofile | egrep -v "^Assembler:"
+rm $ofile
+exit $err
+EOF
+
+# replace GNU assembler linker with wrapper for sxas
+chmod 755 as_sxas
+ln -s as_sxas as
+cd ../../bin
+mv sx8-nec-superux-as sx8-nec-superux-as_gnu
+ln -s ../sx8-nec-superux/bin/as_sxas sx8-nec-superux-as
+cd ../..
+}}}
 
 Build gcc:
 {{{
