@@ -1,4 +1,5 @@
 #summary Building and testing sx-gcc and sx-binutils.
+#labels building,testing,dejagnu,gcc
 
 = Introduction =
 
@@ -13,7 +14,7 @@ svn co https://source.tree.se/sx/sx-gcc/svn/trunk sx-gcc
 svn co https://source.tree.se/sx/sx-gcc/svn/includes sx-includes
 }}}
 
-Set up includes (WARNING: these are fake includes, copied from x86_64 and not really tested for full compatibility with the SX libc API!)
+Set up includes (WARNING: these are fake includes, copied from x86_64 and not really tested for full compatibility with the SX libc API!). If you are on a SX frontend machine you can try using a copy of the original super-ux libc includes (located in /SX/usr/include).
 {{{
 mkdir -p sx/sx8-nec-superux
 cd sx/sx8-nec-superux
@@ -30,36 +31,55 @@ make install
 cd ..
 }}}
 
-GNU assembler (and to a lesser extent the linker) are mostly working and you can use them. However, you can choose to use native assembler and/or linker by following these steps:
-
-1. make sure your PATH environment variable is set in such a manner that *sxld* and *sxas* are in the execution path.
-
-2. create wrapper scripts for the assembler and linker.
-
+GNU assembler is working pretty well and you can use it. Right now the GNU linker needs to be replaced by *sxld* from the crosskit. For that you'll need to:
+ # make sure your PATH environment variable is set in such a manner that *sxld* and *sxas* are in the execution path.
+ # create a wrapper script for the linker and replace the GNU ld:
 {{{
 cd sx/sx8-nec-superux/bin/
-mv as as.org
-mv ld ld.org
+mv ld ld_gnu
 
-cat <<'EOF' >as
+cat <<'EOF' >ld_sxld
 #!/bin/sh
-o=`mktemp`
-sxas "$@" >$o >2>&1
-err=$?
-grep -v "Warning: illegal offset" $o
-rm -f $o
-exit $err
+#echo "RUN: $0 $@"
+while [ -n "$1" ]; do
+    case "$1" in
+    -L*)
+        ldir=$1
+        shift
+        OPTS="$OPTS $ldir"
+        ldir=`echo $ldir | sed -e "s:^-L::"`
+        LIBDIRS="$LIBDIRS $ldir"
+        ;;
+    -l*)
+        lib=$1
+        shift
+        OPTS="$OPTS $lib"
+        lib=`echo $lib | sed -e "s:^-l::"`
+        for d in $LIBDIRS; do
+            libpath=$d/lib${lib}.a
+            if [ -f $libpath ]; then
+                OPTS="$OPTS $libpath"
+                break
+            fi
+        done
+        ;;
+    *)
+        OPTS="$OPTS $1"
+        shift
+        ;;
+    esac
+done
+#echo "sxld $OPTS"
+eval sxld $OPTS
 EOF
 
-chmod 755 as
-
-cat <<'EOF' >ld
-#!/bin/sh
-exec sxld "$@"
-EOF
-
-chmod 755 ld
-cd ../../..
+# replace original linker with wrapper for sxld
+chmod 755 ld_sxld
+ln -s ld_sxld ld
+cd ../../bin
+mv sx8-nec-superux-ld sx8-nec-superux-ld_gnu
+ln -s ../sx8-nec-superux/bin/ld_sxld sx8-nec-superux-ld
+cd ../..
 }}}
 
 Build gcc:
@@ -97,6 +117,8 @@ set_board_info rcp_prog /usr/bin/scp;
 }}}
 
 == Running tests ==
+
+First: add sx/bin to your PATH environment variable, such that the commands sx8-nec-superux-* can be found.
 
 From inside the GCC build directory you can now run tests by calling:
 {{{
