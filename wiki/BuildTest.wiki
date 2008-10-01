@@ -139,6 +139,13 @@ set_board_info rsh_prog /usr/bin/ssh;
 set_board_info rcp_prog /usr/bin/scp;
 }}}
 
+To run the tests on a SX-6 machine add 
+{{{
+set_board_info ldflags  "-msx6"
+}}}
+to the end of the .exp file. This will generate the correct magic number of 
+the linked executable. If the SX-8 magic number is used the execution on SX-6 will fail.
+
 == Running tests ==
 
 First: add sx/bin to your PATH environment variable, such that the commands sx8-nec-superux-* can be found.
