@@ -4,6 +4,10 @@
 
 There already exists a framework within the regular GCC 4.2.2 tree that allows to compile an SX cross compiler on i386 / x86_64 architectures (others have not been tested!).
 
+We do regular tests and the current results can be found at :
+http://source.tree.se/sx/sx-gcc/testrun/current/
+For archived tests see http://source.tree.se/sx/sx-gcc/testrun/
+
 == binutils port ==
 
 || *tool*      || *status* || *ticket list* || *notes* ||
