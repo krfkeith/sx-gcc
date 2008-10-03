@@ -11,7 +11,7 @@ For archived tests see http://source.tree.se/sx/sx-gcc/testrun/
 == binutils port ==
 
 || *tool*      || *status* || *ticket list* || *notes* ||
-|| ld        || port started || [http://code.google.com/p/sx-gcc/issues/list?q=label:ld issues] || ||
+|| ld        || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:ld issues] || ||
 || as        || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:gas issues] || ||
 || objdump   || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
 || addr2line || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:addr2line issues] || ||
