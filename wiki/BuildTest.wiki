@@ -3,18 +3,20 @@
 
 = Introduction =
 
-This page describes how to download and build sx-gcc and sx-binutils. Right now this should be done on a machine on which the SX cross-kit is installed. Until we get the GNU assembler and linker running, sxld and sxas need to be used. Right now also the libc delivered with the SX needs to be used!
+This page describes how to download and build sx-gcc and sx-binutils.
+
+NOTE: you will need standard C libs (libc, startup files etc.) and headers delivered with the SX in order to build running SX executables, as we don't yet have a glibc/newlib port for SX.
 
 = Details =
 
 Check out repositories:
 {{{
-svn co https://source.tree.se/sx/sx-binutils/svn/trunk sx-binutils
+svn co https://source.tree.se/sx/sx-binutils/svn/branches/sx-binutils-2.18 sx-binutils
 svn co https://source.tree.se/sx/sx-gcc/svn/trunk sx-gcc
 svn co https://source.tree.se/sx/sx-gcc/svn/includes sx-includes
 }}}
 
-Set up includes (WARNING: these are fake includes, copied from x86_64 and not really tested for full compatibility with the SX libc API!). If you are on a SX frontend machine you can try using a copy of the original super-ux libc includes (located in /SX/usr/include).
+Set up includes (WARNING: these are fake includes, copied from x86_64 and not really compatibile with the SX libc API!). If you have access to an SX machine you should use a copy of the original super-ux libc includes (located in /SX/usr/include).
 {{{
 mkdir -p sx/sx8-nec-superux
 cd sx/sx8-nec-superux
@@ -31,79 +33,13 @@ make install
 cd ..
 }}}
 
-GNU assembler is working pretty well and you can use it. Right now the GNU linker needs to be replaced by *sxld* from the crosskit. For that you'll need to:
- # make sure your PATH environment variable is set in such a manner that *sxld* and *sxas* are in the execution path.
- # create a wrapper script for the linker and replace the GNU ld:
-{{{
-cd sx/sx8-nec-superux/bin/
-mv ld ld_gnu
+Both GNU assembler and GNU linker are working pretty well and you can safely use both of them. 
 
-cat <<'EOF' >ld_sxld
-#!/bin/sh
-#echo "RUN: $0 $@"
-while [ -n "$1" ]; do
-    case "$1" in
-    -L*)
-        ldir=$1
-        shift
-        OPTS="$OPTS $ldir"
-        ldir=`echo $ldir | sed -e "s:^-L::"`
-        LIBDIRS="$LIBDIRS $ldir"
-        ;;
-    -l*)
-        lib=$1
-        shift
-        OPTS="$OPTS $lib"
-        lib=`echo $lib | sed -e "s:^-l::"`
-        for d in $LIBDIRS; do
-            libpath=$d/lib${lib}.a
-            if [ -f $libpath ]; then
-                OPTS="$OPTS $libpath"
-                break
-            fi
-        done
-        ;;
-    *)
-        OPTS="$OPTS $1"
-        shift
-        ;;
-    esac
-done
-#echo "sxld $OPTS"
-eval sxld $OPTS
-EOF
+You can also opt to use the assembler and linker from SX crosskit. To this end, you will need to use scripts from 
 
-# replace original linker with wrapper for sxld
-chmod 755 ld_sxld
-ln -s ld_sxld ld
-cd ../../bin
-mv sx8-nec-superux-ld sx8-nec-superux-ld_gnu
-ln -s ../sx8-nec-superux/bin/ld_sxld sx8-nec-superux-ld
-cd ../..
-}}}
- # if you want to test with *sxas* instead of *GNU as*, create a wrapper script for *sxas*:
-{{{
-cd sx/sx8-nec-superux/bin/
-mv as as_gnu
+https://source.tree.se/sx/sx-gcc/svn/tools/testbench/sx-exe/
 
-cat <<'EOF' >as_sxas
-#!/bin/sh
-ofile=`mktemp`
-sxas -h sx6 "$@" >$ofile 2>&1
-err=$?
-grep -v "Warning: illegal offset" $ofile | egrep -v "^Assembler:"
-rm $ofile
-exit $err
-EOF
-
-# replace GNU assembler linker with wrapper for sxas
-chmod 755 as_sxas
-ln -s as_sxas as
-cd ../../bin
-mv sx8-nec-superux-as sx8-nec-superux-as_gnu
-ln -s ../sx8-nec-superux/bin/as_sxas sx8-nec-superux-as
-cd ../..
-}}}
+Download the scripts to your system, chmod them to 0755, remove as and ld installed by the SX port of binutils and created softlinks pointing to just downloaded sx[as|ld].sh in their stead.
 
 Build gcc:
 {{{
