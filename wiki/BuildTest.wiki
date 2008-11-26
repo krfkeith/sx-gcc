@@ -16,7 +16,7 @@ svn co https://source.tree.se/sx/sx-gcc/svn/trunk sx-gcc
 svn co https://source.tree.se/sx/sx-gcc/svn/includes sx-includes
 }}}
 
-NOTE: {{{https://source.tree.se/sx/sx-binutils/svn/trunk}}} will point you at the current development version of SX port of binutils 2.19. if this version causes you problems, you can try the 2.18 branch from {{{https://source.tree.se/sx/sx-binutils/svn/branches/sx-binutils-2.18/}}} or one of the [http://code.google.com/p/sx-gcc/downloads/list released tarballs]
+{{{https://source.tree.se/sx/sx-binutils/svn/trunk}}} will point you at the current development version of SX port of binutils 2.19. if this version causes you problems, you can try the 2.18 branch from {{{https://source.tree.se/sx/sx-binutils/svn/branches/sx-binutils-2.18/}}} or one of the [http://code.google.com/p/sx-gcc/downloads/list released tarballs]
 
 Set up includes (WARNING: these are fake includes, copied from x86_64 and not really compatibile with the SX libc API!). If you have access to an SX machine you should use a copy of the original super-ux libc includes (located in /SX/usr/include).
 {{{
