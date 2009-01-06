@@ -26,7 +26,7 @@ Return values are sored in registers $s123 - $s127.
 
 = Stack Layout =
 
-(this section is reconstructed from assembly produced by gcc, as I tend to reconstruct and forget stack layout at least once a month; pending check and approval from erich)
+This stack layout is the convention used in our implementation of SX-GCC. SuperUX and the native SX compilers have the order of ARGS and LOCALS reversed! That doesn't actually matter for ineroperability of code from SX-GCC and native compilers.
 
 Stack grows from low towards high addresses. It is organised in the following manner (for a function "current" with N args, called by function "caller", and calling a set of functions "callees"):
 
