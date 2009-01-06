@@ -26,12 +26,47 @@ Return values are sored in registers $s123 - $s127.
 
 = Stack Layout =
 
+(this section is reconstructed from assembly produced by gcc, as I tend to reconstruct and forget stack layout at least once a month; pending check and approval from erich)
+
+Stack grows from low towards high addresses. It is organised in the following manner (for a function "current" with N args, called by function "caller", and calling a set of functions "callees"):
+
+{{{
+
+$s2 ------>  +--------
+             | 
+             | RSA (current)
+             |
+             | 272
+             |
+             +-------- <----------- $s1 (callees)
+             |
+             | ARGS   (callees)
+             |
+             | LOCALS (current)
+             |
+             +-------- <----------- $s2 (caller)
+             |
+             |  RSA (caller)
+             |  
+             |  272
+             |
+$s1 -------> +--------
+             |  ARGS (current)
+             |
+             |  ARG 0
+             |  ...
+             |  ARG N - 1
+             |  N
+$s34 ------> +--------
+
+}}}
+
 = Register Usage =
 This section descibes the registers that are used in functions and are therfore not usable in the function itself because they serve a certain purpose that must be maintained during function execution.
 
 || *Register* || *Purpose* ||
 || $s0 || Max. address that the stack can expand to ||
-|| $s1 || Lowest address of stack area ||
+|| $s1 || Hard frame pointer (bottom of stack for a function) ||
 || $s2 || Top of the current stack frame ||
 || $s3 || Function copy of $s34. When calling another function from within a function it is important to remeber the parameter entry because for the other function call $s34 must be overwritten ||
 || $s4 || Pointer to linkage section ||
