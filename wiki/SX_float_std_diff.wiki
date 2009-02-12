@@ -1,0 +1,6 @@
+SX floating point instruction sometimes (mostly when dealing with special values or errors) have semantics that does not quite match the standards (IEEE etc.), and not what the gcc testsuite expects.
+
+Strict adherence to standards is achieved using -mstrict-float (use software-assisted fp operations when hw semantics differs), or -msoft-float (use software fp exclusively).
+
+Here we list the instructions that behave differently and how:
+ * marko, pls ...
