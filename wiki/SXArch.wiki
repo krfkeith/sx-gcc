@@ -25,7 +25,7 @@ The line of SX Vectorcomputers is documented at http://en.wikipedia.org/wiki/SX_
  * [SX_instr_fmts Instruction formats and addressing modes]
  * [SXopcodes Assembler mnemonics and opcodes]
  * [SX_calling_conv SuperUX calling conventions:] registers and return values
-
+ * [SX_float_std_diff Differences between SX floating point instruction semantics and standardized semantics]
 
 == Memory ==
 
