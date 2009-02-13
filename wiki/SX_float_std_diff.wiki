@@ -3,4 +3,7 @@ SX floating point instruction sometimes (mostly when dealing with special values
 Strict adherence to standards is achieved using -mstrict-float (use software-assisted fp operations when hw semantics differs), or -msoft-float (use software fp exclusively).
 
 Here we list the instructions that behave differently and how:
- * marko, pls ...
+ * fmp, fmp@: after performing the operation, this function doesn't do the rounding on denormal results. On the other hand, the gcc tests expect the denormal results to be rounded.
+ * cvs: after performing the operation, this function doesn't do the rounding on denormal results. On the other hand, the gcc tests expect the denormal results to be rounded.
+ * flt, flt@:
+ * fltx: 
