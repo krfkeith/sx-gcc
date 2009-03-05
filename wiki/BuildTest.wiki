@@ -7,29 +7,73 @@ This page describes how to download and build sx-gcc and sx-binutils.
 
 NOTE: you will need standard C libs (libc, startup files etc.) and headers delivered with the SX in order to build running SX executables, as we don't yet have a glibc/newlib port for SX.
 
+The installation prefix for the toolchain installation is denoted as PREFIX in this text.
+
 = Details =
+
+== Download the sources ==
 
 Check out repositories:
 {{{
 svn co https://source.tree.se/sx/sx-binutils/svn/trunk sx-binutils
 svn co https://source.tree.se/sx/sx-gcc/svn/trunk sx-gcc
-svn co https://source.tree.se/sx/sx-gcc/svn/includes sx-includes
 }}}
 
 {{{https://source.tree.se/sx/sx-binutils/svn/trunk}}} will point you at the current development version of SX port of binutils 2.19. if this version causes you problems, you can try the 2.18 branch from {{{https://source.tree.se/sx/sx-binutils/svn/branches/sx-binutils-2.18/}}} or one of the [http://code.google.com/p/sx-gcc/downloads/list released tarballs]
 
-Set up includes (WARNING: these are fake includes, copied from x86_64 and not really compatibile with the SX libc API!). If you have access to an SX machine you should use a copy of the original super-ux libc includes (located in /SX/usr/include).
+== Set up the environment ==
+
+You need access to an SX machine or SX cross compilation kit in order to copy SX headers and libs into the gcc installation prefix.
+
+First the headers:
 {{{
-mkdir -p sx/sx8-nec-superux
-cd sx/sx8-nec-superux
-ln -s ../../sx-includes/ include
-cd ../..
+mkdir -p PREFIX/sx8-nec-superux
+cd PREFIX/sx8-nec-superux
+cp -r /path/to/SX/include ./include
 }}}
 
-Build binutils:
+After setting them up, patch the headers with the following patch:
+{{{
+--- sx8-nec-superux/include/stdio.h.old    2003-08-27 08:55:32.000000000 +0200
++++ sx8-nec-superux/include/stdio.h    2009-02-23 12:54:53.000000000 +0100
+@@ -143,8 +143,8 @@
+ #   endif
+ #endif
+
+-#if (defined(_XOPEN_SOURCE) && !defined(__VA_LIST)) \
+-       || (defined(_SX) && __STDC__ - 0 == 0 && !defined(__VA_LIST))
++#if !defined(__GNUC__) && ((defined(_XOPEN_SOURCE) && !defined(__VA_LIST)) \
++       || (defined(_SX) && __STDC__ - 0 == 0 && !defined(__VA_LIST)))
+        /* for compatibility */
+ #   define __VA_LIST
+        typedef _VA_LIST        va_list;
+}}}
+
+Now the libs:
+{{{
+mkdir -p PREFIX/sx8-nec-superux
+cd PREFIX/sx8-nec-superux
+cp -r SX_LIBS ./include
+}}}
+
+SX_LIBS should at minimum include the following SX libraries:
+ * crt1.o, crt2.o, crt3.o, crt4.o, crt5.o, crtn.o
+ * mcrt1.o, mcrt2.o, mcrt3.o, mcrt4.o, mcrt5.o
+ * libm.a
+ * libc.a
+ * libcpp.a
+ * libpthread.a
+ * libpthread_s.a
+ * libt.a
+ * libt_s.a
+ * values-Xa.o, values-Xc.o, values-Xsvr42.o, values-Xt.o
+ * libg.a
+
+== Build binutils ==
+
 {{{
 cd sx-binutils 
-./configure --target=sx8-nec-superux --enable-languages=c --prefix=`pwd`/../sx
+./configure --target=sx8-nec-superux --enable-languages=c --prefix=PREFIX
 make
 make install
 cd ..
@@ -37,25 +81,31 @@ cd ..
 
 Both GNU assembler and GNU linker are working pretty well and you can safely use both of them. 
 
+<wiki:comment>
 You can also opt to use the assembler and linker from SX crosskit. To this end, you will need to use scripts from 
 
 https://source.tree.se/sx/sx-gcc/svn/tools/testbench/sx-exe/
 
 Download the scripts to your system, chmod them to 0755, remove as and ld installed by the SX port of binutils and created softlinks pointing to just downloaded sx[as|ld].sh in their stead.
+</wiki:comment>
 
-Build gcc:
+== Build gcc ==
+
 {{{
 mkdir sx-build
 cd sx-build
 ../sx-gcc/configure  --target=sx8-nec-superux --enable-languages=c \
-  --prefix=`pwd`/../sx --disable-libssp --disable-threads
-make -j 2
+  --prefix=PREFIX --disable-libssp --disable-threads
+make
+make install
 }}}
 
+<wiki:comment>
 If GCC build fails during cross compilation of libgcc2 or other libraries for the SX cross environment, we need you to do the following with each bug encountered at this stage:
  * move to the directory where the build failed (make will spit out "Leaving directory xyz" when it fails),
  * reproduce the whole command line that failed (it will most likely begin with "/home/jaka/dev/sx/gcc/build/./gcc/xgcc"), and add "-save-temps -v" to it. run it!
  * now attach the whole output of this run to the bug report, as well as the intermediate files (preprocessed C source and generated assembler source, if they were generated)
+</wiki:comment>
 
 = Testing =
 
