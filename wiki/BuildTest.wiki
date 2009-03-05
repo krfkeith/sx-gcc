@@ -53,7 +53,7 @@ Now the libs:
 {{{
 mkdir -p PREFIX/sx8-nec-superux
 cd PREFIX/sx8-nec-superux
-cp -r SX_LIBS ./include
+cp -r SX_LIBS ./lib/
 }}}
 
 SX_LIBS should at minimum include the following SX libraries:
