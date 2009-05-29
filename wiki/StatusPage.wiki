@@ -24,7 +24,7 @@ http://source.tree.se/sx/sx-gcc/testrun/
 || readelf   || TODO || TODO || when building for COFF/SX target, we don't need this one ||
 || size      || ported || TODO || ||
 || strings   || ported || TODO || ||
-|| strip     || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:strip issues] || can corrupt executables ... ||
+|| strip     || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:strip issues] || ||
 || dlltool   || TODO || TODO || ||
 || windmc    || TODO || TODO || we don't really want this one ;) ||
 || windres   || TODO || TODO || we don't really want this one ;) ||
