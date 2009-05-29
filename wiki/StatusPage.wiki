@@ -38,14 +38,3 @@ http://source.tree.se/sx/sx-gcc/testrun/
 = Checking out and building the source =
 
 Instructions are on the [BuildTest Building and Testing] wiki page.
-
-= Testing =
-
-Do a
-{{{
-cd ../test
-env PATH=$PATH:$BUILDDIR/gcc gcc-cross -S -dP test.c
-}}}
-... and look at the produced assembler file _test.s_.
-
-The command line options related to dumping RTL at any of the compiler passes are interesting. *-dP* dumps RTL code as comment into the assembler output. But many more options can be used, check out the gcc manpage and options starting with *-fdump-rtl-*. For dumping all RTL intermediate files try *-fdump-rtl-all*.
