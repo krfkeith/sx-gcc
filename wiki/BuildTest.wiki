@@ -1,5 +1,5 @@
 #summary Building and testing sx-gcc and sx-binutils.
-#labels building,testing,dejagnu,gcc
+#labels building,testing,dejagnu,gcc,g
 
 = Introduction =
 
@@ -23,15 +23,17 @@ svn co https://source.tree.se/sx/sx-gcc/svn/trunk sx-gcc
 
 == Set up the environment ==
 
-You need access to an SX machine or SX cross compilation kit in order to copy SX headers and libs into the gcc installation prefix.
+You need access to an SX machine or SX cross compilation kit in order to copy SX headers and libs into the gcc installation prefix, in the '''sys-include''' dir (which is used for vendor OS headers).
 
 First the headers:
 {{{
 mkdir -p PREFIX/sx8-nec-superux
 cd PREFIX/sx8-nec-superux
-cp -r /path/to/SX/include ./include
+cp -r /path/to/SX/include ./sys-include
 }}}
 
+<wiki:comment>
+(no patching of headers should be needed anymore since r280 and the above described use of sys-include)
 After setting them up, patch the headers with the following patch:
 {{{
 --- sx8-nec-superux/include/stdio.h.old    2003-08-27 08:55:32.000000000 +0200
@@ -48,6 +50,7 @@ After setting them up, patch the headers with the following patch:
  #   define __VA_LIST
         typedef _VA_LIST        va_list;
 }}}
+</wiki:comment>
 
 Now the libs:
 {{{
@@ -153,3 +156,7 @@ env RUNTESTFLAGS="--target_board=v00 builtins.exp" make check
 If you need more verbosity, you can add several *-v* to the RUNTESTFLAGS.
 
 The default output of the tests is limited and mainly shows failures. The full output is stored in the file gcc/testsuite/gcc/gcc.log .
+
+== Building a C++ cross-compiler ==
+
+Just use --enable-languages=c,c++ option to configure. Note that the C++ compiler is not yet fully ported and while it will compile all sources, code will often not be correct.
