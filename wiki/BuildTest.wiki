@@ -32,6 +32,8 @@ cd PREFIX/sx8-nec-superux
 cp -r /path/to/SX/include ./sys-include
 }}}
 
+If you're doing a fresh install from scratch (binutils and gcc), make sure that PREFIX/sx8-nec-superux/include is '''empty'''! If you're just reinstalling gcc, leave it be.
+
 <wiki:comment>
 (no patching of headers should be needed anymore since r280 and the above described use of sys-include)
 After setting them up, patch the headers with the following patch:
