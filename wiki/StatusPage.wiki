@@ -33,7 +33,7 @@ http://source.tree.se/sx/sx-gcc/testrun/
 
 || *tool*      || *status* || *ticket list* || *notes* ||
 || gcc         || ported   || [http://code.google.com/p/sx-gcc/issues/list?q=label:gcc issues] || problems with debug info; profiling not implemented ||
-|| g++         || porting  || [http://code.google.com/p/sx-gcc/issues/list?q=label:g++ issues] || port in progress: can build basic g++ sources ||
+|| g++         || porting  || [http://code.google.com/p/sx-gcc/issues/list?q=label:g++ issues] || port almost finished: the majority of the g++ and libstdc++ pass ||
 
 = Checking out and building the source =
 
