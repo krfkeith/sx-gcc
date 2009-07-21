@@ -60,10 +60,10 @@ libstdc++: <br>
 # of unsupported tests        328 <br>
 
 Currently the largest number of the tests that fail are in the "libstdc++" group. They can roughly be categorized in 4 groups:
-# 16 test cases fail because of the issue #137 in the sx-gcc bugtracker. We could fix them if we started using the SX format for quad precision floating point numbers instead of IEEE format.
-# 4 test cases fail because of the issue #141 in the sx-gcc bugtracker. These test cases fail only if the "-ffunction-sections -fdata-sections" switches are used when compiling the code.
-# 39 test cases fail because of the issue #139 in the sx-gcc bugtracker. These test cases fail to compile only if the "-g" switch is used when compiling the code (i.e. debugging info is enabled).
-# the cause of failure for the rest of the test cases is unknown. Some more time would have to be spent to identify them.
+ # 16 test cases fail because of the issue #137 in the sx-gcc bugtracker. We could fix them if we started using the SX format for quad precision floating point numbers instead of IEEE format.
+ # 4 test cases fail because of the issue #141 in the sx-gcc bugtracker. These test cases fail only if the "-ffunction-sections -fdata-sections" switches are used when compiling the code.
+ # 39 test cases fail because of the issue #139 in the sx-gcc bugtracker. These test cases fail to compile only if the "-g" switch is used when compiling the code (i.e. debugging info is enabled).
+ # the cause of failure for the rest of the test cases is unknown. Some more time would have to be spent to identify them.
 
 = Checking out and building the source =
 
