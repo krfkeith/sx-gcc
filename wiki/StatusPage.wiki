@@ -15,7 +15,7 @@ http://source.tree.se/sx/sx-gcc/testrun/
 || objdump   || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:objdump issues] || ||
 || addr2line || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:addr2line issues] || ||
 || ar        || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:ar issues] || ||
-|| c++filt   || TODO || TODO || ||
+|| c++filt   || ported || TODO || ||
 || gprof     || TODO || TODO || ||
 || nlmconv   || TODO || TODO || ||
 || nm        || ported || [http://code.google.com/p/sx-gcc/issues/list?q=label:nm issues] || ||
