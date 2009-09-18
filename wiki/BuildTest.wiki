@@ -23,7 +23,7 @@ svn co https://source.tree.se/sx/sx-gcc/svn/trunk sx-gcc
 
 == Set up the environment ==
 
-You need access to an SX machine or SX cross compilation kit in order to copy SX headers and libs into the gcc installation prefix, in the *sys-include* dir (which is used for vendor OS headers).
+You need access to an SX machine or SX cross compilation kit in order to copy SX headers and libs (FLOAT0, 64-bit libs, see the note below!) into the gcc installation prefix, in the *sys-include* dir (which is used for vendor OS headers).
 
 First the headers:
 {{{
