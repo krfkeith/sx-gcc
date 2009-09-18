@@ -74,6 +74,8 @@ SX_LIBS should at minimum include the following SX libraries:
  * values-Xa.o, values-Xc.o, values-Xsvr42.o, values-Xt.o
  * libg.a
 
+*NOTE:* even though binutils can handle all three floating point flavours (FLOAT0,1,2) and 32- or 64-bit size_t (actually, most of binutils except from the assembler are completely agnostic of all these details), gcc implicitly #defines _SIZE_T64 and uses FLOAT0 floating point flavour (IEEE). thus, you should copy *the 64-bit FLOAT0 libraries* from an SX system (found in /usr/lib0/lib64/* on a native SX system, or in /SX/usr/lib0/lib64/* on a cross-compilation linux host like a1).
+
 == Build binutils ==
 
 {{{
