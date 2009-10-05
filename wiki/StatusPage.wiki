@@ -32,8 +32,8 @@ http://source.tree.se/sx/sx-gcc/testrun/
 == gcc port ==
 
 || *tool*      || *status* || *ticket list* || *notes* ||
-|| gcc         || ported   || [http://code.google.com/p/sx-gcc/issues/list?q=label:gcc issues] || problems with debug info; profiling not implemented ||
-|| g++         || porting  || [http://code.google.com/p/sx-gcc/issues/list?q=label:g++ issues] || port almost finished: the majority of the g++ and libstdc++ pass ||
+|| gcc         || ported   || [http://code.google.com/p/sx-gcc/issues/list?q=label:gcc issues] || done ||
+|| g++         || porting  || [http://code.google.com/p/sx-gcc/issues/list?q=label:g++ issues] || done ||
 
 
 Below, you can check the latest results of the built-in DejaGNU test cases for gcc, g++ and libstdc++ (the tests were performed with the following revisions of binutils and gcc: binutils r213, gcc r306):
